@@ -127,8 +127,8 @@ const CoreValues = () => {
         </motion.div>
       </motion.div>
 
-      <motion.div
-        className="text-left flex flex-col gap-4 mt-36"
+      {/* <motion.div
+        className="text-left flex flex-col gap-4 mt-26"
         variants={staggerContainer}
         initial="hidden"
         whileInView="visible"
@@ -152,7 +152,7 @@ const CoreValues = () => {
               transition={{ duration: 0.6 }}
             >
               <Image
-                src="/images/brain.svg"
+                src="/assets/home/brain.svg"
                 alt="brain"
                 width={40}
                 height={40}
@@ -169,7 +169,7 @@ const CoreValues = () => {
             <CoreCards2 />
           </motion.div>
         </motion.div>
-      </motion.div>
+      </motion.div> */}
     </section>
   );
 };

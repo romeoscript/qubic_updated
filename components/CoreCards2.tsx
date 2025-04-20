@@ -7,13 +7,13 @@ const services = [
     title: "Custom Software Development",
     description:
       "Building tailored software solutions that seamlessly integrate with your existing systems, focusing on scalability and performance optimization for government agencies.",
-    icon: "/images/dedicate.svg",
+    icon: "/assets/home/dedicate.svg",
   },
   {
     title: "Public Sector Technology",
     description:
       "Developing specialized technology solutions for government operations, including secure digital infrastructure, citizen service portals, and regulatory compliance systems.",
-    icon: "/images/dedicate.svg",
+    icon: "/assets/home/dedicate.svg",
   },
 ];
 
@@ -33,7 +33,7 @@ const CoreCards2 = () => {
         >
           <div className="absolute top-0 right-0 w-full h-full opacity-10 z-0">
             <Image
-              src="/images/blur.svg"
+              src="assets/home/blur.svg"
               alt="Background pattern"
               layout="fill"
               objectFit="cover"
@@ -50,7 +50,7 @@ const CoreCards2 = () => {
                 className="group-hover:filter group-hover:brightness-0 group-hover:invert transition-all duration-300"
               />
             </div>
-            <h3 className="text-2xl font-semibold group-hover:text-white transition-all duration-300">
+            <h3 className="text-2xl text-black font-semibold group-hover:text-white transition-all duration-300">
               {service.title}
             </h3>
           </div>
@@ -59,11 +59,7 @@ const CoreCards2 = () => {
             <p className="text-gray-700 group-hover:text-white transition-all duration-300 mb-8">
               {service.description}
             </p>
-            <div className="flex gap-3">
-              <Image src="/images/hero2.svg" width={48} height={48} alt="team member" />
-              <Image src="/images/hero1.svg" width={48} height={48} alt="team member" />
-              <Image src="/images/hero3.svg" width={48} height={48} alt="team member" />
-            </div>
+           
           </div>
         </motion.div>
       ))}

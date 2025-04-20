@@ -17,19 +17,17 @@ const CoreCards = ({ id, title, description }: Props) => {
       <span className='absolute top-5 left-6 text-[#D9D9D9] text-5xl font-light'>
         {id}
       </span>
-      
       <div
         className="mb-6 h-16 w-16 p-4 rounded-full bg-[#D9D9D9] transition-all duration-300 group-hover:bg-black flex items-center justify-center"
       >
         <Image 
-          src="/images/dedicate.svg" 
+          src="/assets/home/dedicate.svg" 
           alt="Icon" 
           width={32} 
           height={32}
           className="transition-transform duration-300 group-hover:scale-110" 
         />
       </div>
-
       <div className="text-left">
         <h3 className="text-xl text-black font-semibold transition-all duration-300">
           {title}

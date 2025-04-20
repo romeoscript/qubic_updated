@@ -1,10 +1,24 @@
 'use client'
 // components/Hero.jsx
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
+    // For scroll-based animations
+    const { scrollYProgress } = useScroll();
+    
+    // Transform values for arrow color and movement
+    const arrowOpacity = useTransform(scrollYProgress, [0, 0.1], [1, 0.7]);
+    const arrowColor = useTransform(
+        scrollYProgress, 
+        [0, 0.05, 0.1], 
+        ["#F0F0F0", "#A0A0A0", "#303030"]
+    );
+    const arrowX = useTransform(scrollYProgress, [0, 0.1], [0, 20]);
+    const arrowScale = useTransform(scrollYProgress, [0, 0.1], [1, 1.1]);
+
     // Animation variants
     const containerVariants = {
         hidden: { opacity: 0 },
@@ -78,14 +92,27 @@ const Hero = () => {
 
                     <div className="flex flex-col md:flex-row">
                         <div className="md:w-1/2 mb-8 md:mb-0">
-                            {/* Path Illustration */}
+                            {/* Path Illustration - Now with scroll-based animations */}
                             <motion.div
                                 variants={itemVariants}
-                                className="hidden md:block max-w-md"
+                                className="max-w-md mx-auto md:mx-0"
+                                style={{ 
+                                    opacity: arrowOpacity,
+                                    x: arrowX,
+                                    scale: arrowScale
+                                }}
                             >
-                                <svg width="100%" height="100%" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M10,50 C80,120 150,-20 390,50" stroke="#F0F0F0" strokeWidth="4" />
-                                    <path d="M370,50 L390,50 L380,40" stroke="#F0F0F0" strokeWidth="4" />
+                                <svg width="100%" height="80" viewBox="0 0 400 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <motion.path 
+                                        d="M10,50 C80,120 150,-20 390,50" 
+                                        stroke={arrowColor} 
+                                        strokeWidth="4" 
+                                    />
+                                    <motion.path 
+                                        d="M370,50 L390,50 L380,40" 
+                                        stroke={arrowColor} 
+                                        strokeWidth="4" 
+                                    />
                                 </svg>
                             </motion.div>
                         </div>
@@ -115,31 +142,9 @@ const Hero = () => {
                                         GET IN TOUCH
                                     </Link>
                                 </motion.div>
-
-                                {/* <motion.div
-                                    variants={buttonVariants}
-                                    whileHover="hover"
-                                    whileTap="tap"
-                                >
-                                    <Link href="/work" className="bg-gray-100 text-black px-8 py-4 inline-block font-medium">
-                                        EXPLORE WORKS
-                                    </Link>
-                                </motion.div> */}
                             </motion.div>
                         </div>
                     </div>
-
-                    {/* Services */}
-                    {/* <motion.div
-                        variants={itemVariants}
-                        className="flex flex-wrap gap-x-6 gap-y-3 text-gray-700 mt-16 md:mt-24"
-                    >
-                        <span className="flex items-center">Web Design <span className="mx-2">★</span></span>
-                        <span className="flex items-center">Branding <span className="mx-2">★</span></span>
-                        <span className="flex items-center">Art Direction <span className="mx-2">★</span></span>
-                        <span className="flex items-center">Development <span className="mx-2">★</span></span>
-                        <span>No-code</span>
-                    </motion.div> */}
                 </motion.div>
             </div>
         </section>
