@@ -27,6 +27,18 @@ const Navbar = () => {
     const pathname = usePathname();
     const isActive = (path: string) => pathname === path;
 
+    // Function to handle smooth scroll to section
+    const scrollToSection = (id: string) => {
+        setIsMobileMenuOpen(false);
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            // If on another page, navigate to home page with hash
+            router.push(`/#${id}`);
+        }
+    };
+
     // Animation variants
     const navbarVariants = {
         hidden: { opacity: 0, y: -20 },
@@ -129,6 +141,12 @@ const Navbar = () => {
         }
     };
 
+    // Navigation links with their corresponding section IDs
+    const navLinks = [
+        { name: 'about', id: 'about' },
+        { name: 'projects', id: 'works' }
+    ];
+
     return (
         <motion.header
             initial="hidden"
@@ -158,28 +176,29 @@ const Navbar = () => {
 
                     {/* Desktop Navigation Links */}
                     <nav className="hidden md:flex items-center space-x-8">
-                        {['about', 'projects', 'pricing'].map((item, index) => (
+                        {navLinks.map((item, index) => (
                             <motion.div
-                                key={item}
+                                key={item.name}
                                 custom={index}
                                 variants={slideInLinks}
                                 whileHover="hover"
                             >
-                                <Link
-                                    href={`/${item}`}
-                                    className={`font-medium relative overflow-hidden group ${isActive(`/${item}`)
+                                <button
+                                    onClick={() => scrollToSection(item.id)}
+                                    className={`font-medium relative overflow-hidden group ${
+                                        isActive(`/#${item.id}`)
                                             ? 'text-black font-semibold'
                                             : scrolled ? 'text-gray-600 hover:text-black' : 'text-gray-800 hover:text-black'
-                                        }`}
+                                    }`}
                                 >
-                                    {item.charAt(0).toUpperCase() + item.slice(1)}
+                                    {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
                                     <motion.span
                                         className="absolute bottom-0 left-0 w-0 h-0.5 bg-black group-hover:w-full transition-all duration-300"
-                                        initial={{ width: isActive(`/${item}`) ? "100%" : "0%" }}
-                                        animate={{ width: isActive(`/${item}`) ? "100%" : "0%" }}
+                                        initial={{ width: isActive(`/#${item.id}`) ? "100%" : "0%" }}
+                                        animate={{ width: isActive(`/#${item.id}`) ? "100%" : "0%" }}
                                         exit={{ width: "0%" }}
                                     />
-                                </Link>
+                                </button>
                             </motion.div>
                         ))}
                     </nav>
@@ -255,27 +274,44 @@ const Navbar = () => {
                     >
                         <div className="container mx-auto px-4 py-20">
                             <nav className="flex flex-col space-y-8 text-2xl font-medium">
-                                {['home', 'about', 'projects', 'pricing'].map((item, index) => (
-                                    <motion.div key={item} variants={mobileItemVariants}>
-                                        <Link
-                                            href={item === 'home' ? '/' : `/${item}`}
-                                            className={`relative overflow-hidden block transition-colors ${isActive(item === 'home' ? '/' : `/${item}`)
-                                                    ? 'text-black font-semibold'
-                                                    : 'text-gray-500 hover:text-black'
-                                                }`}
-                                            onClick={() => setIsMobileMenuOpen(false)}
+                                <motion.div variants={mobileItemVariants}>
+                                    <Link
+                                        href="/"
+                                        className={`relative overflow-hidden block transition-colors ${
+                                            isActive("/") ? 'text-black font-semibold' : 'text-gray-500 hover:text-black'
+                                        }`}
+                                        onClick={() => setIsMobileMenuOpen(false)}
+                                    >
+                                        <span className="relative z-10">Home</span>
+                                        <motion.span
+                                            className="absolute left-0 right-0 bottom-0 h-[2px] bg-black origin-left"
+                                            initial={{ scaleX: isActive("/") ? 1 : 0 }}
+                                            animate={{ scaleX: isActive("/") ? 1 : 0 }}
+                                            exit={{ scaleX: 0 }}
+                                            transition={{ duration: 0.3 }}
+                                        />
+                                    </Link>
+                                </motion.div>
+
+                                {navLinks.map((item) => (
+                                    <motion.div key={item.name} variants={mobileItemVariants}>
+                                        <button
+                                            onClick={() => scrollToSection(item.id)}
+                                            className={`relative overflow-hidden block transition-colors w-full text-left ${
+                                                isActive(`/#${item.id}`) ? 'text-black font-semibold' : 'text-gray-500 hover:text-black'
+                                            }`}
                                         >
                                             <span className="relative z-10">
-                                                {item.charAt(0).toUpperCase() + item.slice(1)}
+                                                {item.name.charAt(0).toUpperCase() + item.name.slice(1)}
                                             </span>
                                             <motion.span
                                                 className="absolute left-0 right-0 bottom-0 h-[2px] bg-black origin-left"
-                                                initial={{ scaleX: isActive(item === 'home' ? '/' : `/${item}`) ? 1 : 0 }}
-                                                animate={{ scaleX: isActive(item === 'home' ? '/' : `/${item}`) ? 1 : 0 }}
+                                                initial={{ scaleX: isActive(`/#${item.id}`) ? 1 : 0 }}
+                                                animate={{ scaleX: isActive(`/#${item.id}`) ? 1 : 0 }}
                                                 exit={{ scaleX: 0 }}
                                                 transition={{ duration: 0.3 }}
                                             />
-                                        </Link>
+                                        </button>
                                     </motion.div>
                                 ))}
 
@@ -294,7 +330,7 @@ const Navbar = () => {
                                         </Link>
                                     </motion.div>
 
-                                    <motion.div
+                                    {/* <motion.div
                                         variants={mobileItemVariants}
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
@@ -306,7 +342,7 @@ const Navbar = () => {
                                         >
                                             EXPLORE WORKS
                                         </Link>
-                                    </motion.div>
+                                    </motion.div> */}
                                 </div>
                             </nav>
                         </div>

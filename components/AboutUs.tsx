@@ -40,8 +40,8 @@ const teamMembers: TeamMember[] = [
   },
   {
     id: 3,
-    name: "Taylor Smith",
-    role: "Emmanuel Umoren",
+    name: "Emmanuel Umoren",
+    role: "Founding Product Designer",
     image: "/assets/home/emma.jpeg",
     socialLinks: {
       linkedin: "https://linkedin.com",
@@ -132,6 +132,7 @@ const AboutUs: React.FC = () => {
   return (
     <section 
       ref={sectionRef}
+      id='about'
       className="py-20 md:py-32 bg-black text-white overflow-hidden relative"
     >
       {/* Gradient background */}

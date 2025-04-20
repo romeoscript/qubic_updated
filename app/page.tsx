@@ -1,6 +1,7 @@
 'use client'
 import AboutUs from "@/components/AboutUs";
 import CoreValues from "@/components/CoreValues";
+import Footer from "@/components/Footer";
 import Hero from "@/components/Hero";
 import Navbar from "@/components/Navbar";
 import OurWork from "@/components/OurWork";
@@ -15,6 +16,7 @@ export default function Home() {
       <CoreValues />
       <OurWork />
       <AboutUs />
+      <Footer />
       <PremiumRotatingElement />
     </div>
   );

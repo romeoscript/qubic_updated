@@ -31,7 +31,7 @@ const projects: Project[] = [
     id: 2,
     title: "Portfolio Design",
     client: "Somtochukwu",
-    image: "/images/work-2.jpg",
+    image: "/assets/product/balldraft.png",
     categories: ["Website", "Brand Identity"],
     link: "/projects/portfolio",
     size: 'medium'
@@ -40,7 +40,7 @@ const projects: Project[] = [
     id: 3,
     title: "Healthcare Dashboard",
     client: "MedConnect",
-    image: "/images/work-3.jpg",
+    image: "/assets/product/cic.png",
     categories: ["UI/UX", "Development"],
     link: "/projects/healthcare",
     size: 'small'
@@ -49,7 +49,7 @@ const projects: Project[] = [
     id: 4,
     title: "E-commerce Platform",
     client: "ShopNow",
-    image: "/images/work-4.jpg",
+    image: "/assets/product/outat.svg",
     categories: ["Web App", "UX Design"],
     link: "/projects/ecommerce",
     size: 'medium'
@@ -58,7 +58,7 @@ const projects: Project[] = [
     id: 5,
     title: "Mobile Banking App",
     client: "FinTech Solutions",
-    image: "/images/work-5.jpg",
+    image: "/assets/product/kwick.svg",
     categories: ["Mobile App", "UI Design"],
     link: "/projects/banking-app",
     size: 'small'
@@ -138,6 +138,7 @@ const OurWorks: React.FC = () => {
     <section 
       ref={sectionRef}
       className="py-20 md:py-32 bg-white"
+      id='works'
     >
       <div className="container mx-auto px-4 md:px-8">
         <motion.div
