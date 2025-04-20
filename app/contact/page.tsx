@@ -231,7 +231,7 @@ const Contact = () => {
               variants={itemVariants}
             >
               <h1 className=" text-4xl md:text-6xl font-bold mb-6">
-                Let's <motion.span 
+                Let&apos;s <motion.span 
                   className="italic relative inline-block"
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -452,7 +452,7 @@ const Contact = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4 }}
             >
-              Let's discuss your project
+              Let&apos;s discuss your project
             </motion.h2>
 
             {/* Success message */}
@@ -491,7 +491,7 @@ const Contact = () => {
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.6 }}
                 >
-                  We'll get back to you as soon as possible.
+                  We&apos;ll get back to you as soon as possible.
                 </motion.p>
               </motion.div>
             ) : (

@@ -38,12 +38,7 @@ const socialLinks = [
   },
 ];
 
-const quickLinks = [
-  { name: 'About Us', path: '/about' },
-  { name: 'Projects', path: '/projects' },
-  { name: 'Services', path: '/services' },
-  { name: 'Blog', path: '/blog' },
-];
+
 
 const legalLinks = [
   { name: 'Privacy Policy', path: '/privacy' },
@@ -64,7 +59,7 @@ const EnhancedFooter = () => {
                         viewport={{ once: true }}
                         className="text-gray-500 mb-6"
                     >
-                        — Let's Build Together
+                        — Let&apos;s Build Together
                     </motion.p>
 
                     <motion.div
@@ -76,7 +71,7 @@ const EnhancedFooter = () => {
                         <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
                             We build and deliver <span className="italic">exceptional</span> solutions.
                             <br />
-                            Let's <span className="text-gray-400">transform</span> your vision into reality.
+                            Let&apos;s <span className="text-gray-400">transform</span> your vision into reality.
                         </h2>
                     </motion.div>
                     

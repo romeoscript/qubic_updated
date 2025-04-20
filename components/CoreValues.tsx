@@ -1,9 +1,7 @@
 // components/CoreValues.tsx
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import CoreCards from "./CoreCards";
-import CoreCards2 from "./CoreCards2";
 import Carousel from "./Carousel";
 
 const CoreValues = () => {

@@ -1,9 +1,8 @@
 'use client'
 // components/Hero.jsx
 import { motion, useScroll, useTransform } from "framer-motion";
-import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+
 
 const Hero = () => {
     // For scroll-based animations
@@ -124,7 +123,7 @@ const Hero = () => {
                                 className="max-w-lg mb-8"
                             >
                                 <p className="text-lg text-black">
-                                    Qubic is What's Cookin' Inc's independent subsidiary, which specializes in private and public sector technology solutions. we deliver custom and advanced software solutions, cloud infrastructure automation, and open source contributions focusing on transparency and social impacts.
+                                    Qubic is What&apos;s Cookin&apos; Inc&apos;s independent subsidiary, which specializes in private and public sector technology solutions. we deliver custom and advanced software solutions, cloud infrastructure automation, and open source contributions focusing on transparency and social impacts.
                                 </p>
                             </motion.div>
 
