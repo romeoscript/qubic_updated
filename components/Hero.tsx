@@ -32,7 +32,7 @@ const Hero = () => {
     };
 
     return (
-        <section className="w-full bg-white py-16 md:py-28 overflow-hidden">
+        <section className="w-full bg-[#fdfcf7] py-16 md:py-28 overflow-hidden">
             <div className="container mx-auto px-4 md:px-8 relative">
                 {/* Decorative Shape - Left */}
                 <div className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-1/2 hidden lg:block">

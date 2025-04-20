@@ -31,10 +31,13 @@ const PremiumRotatingElement = () => {
       onMouseLeave={() => setIsHovered(false)}
       style={{ scale }}
     >
+      {/* Backdrop circle for better visibility on any background */}
+      <div className="absolute inset-0 rounded-full bg-white/80 backdrop-blur-sm dark:bg-black/20 shadow-lg"></div>
+      
       {/* Outer rotating element */}
       <motion.div
         style={{ rotate: rotateOuter }}
-        className="w-16 h-16 md:w-24 md:h-24 flex items-center justify-center"
+        className="w-16 h-16 md:w-24 md:h-24 flex items-center justify-center relative z-10"
       >
         <svg 
           width="100%" 
@@ -47,7 +50,7 @@ const PremiumRotatingElement = () => {
             cx="50" 
             cy="50" 
             r="45" 
-            stroke="black" 
+            stroke="#003399" 
             strokeWidth="1.5" 
             strokeDasharray="4 2"
             fill="none" 
@@ -56,8 +59,8 @@ const PremiumRotatingElement = () => {
           {/* Cardinal points */}
           {[0, 90, 180, 270].map((angle, index) => (
             <g key={index} transform={`rotate(${angle} 50 50)`}>
-              <circle cx="50" cy="5" r="2" fill="black" />
-              <rect x="49" y="10" width="2" height="5" fill="black" />
+              <circle cx="50" cy="5" r="2" fill="#003399" />
+              <rect x="49" y="10" width="2" height="5" fill="#003399" />
             </g>
           ))}
         </svg>
@@ -72,7 +75,7 @@ const PremiumRotatingElement = () => {
           left: '50%',
           transform: 'translate(-50%, -50%)'
         }}
-        className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center"
+        className="w-12 h-12 md:w-16 md:h-16 flex items-center justify-center relative z-10"
       >
         <svg 
           width="100%" 
@@ -85,7 +88,7 @@ const PremiumRotatingElement = () => {
             cx="50" 
             cy="50" 
             r="40" 
-            stroke="black" 
+            stroke="#003399" 
             strokeWidth="1" 
             fill={isHovered ? "#f0f0f0" : "white"} 
           />
@@ -95,9 +98,9 @@ const PremiumRotatingElement = () => {
             <path 
               key={index}
               d={`M50 50 L${50 + 30 * Math.cos(angle * Math.PI/180)} ${50 + 30 * Math.sin(angle * Math.PI/180)}`}
-              stroke="black" 
+              stroke="#003399" 
               strokeWidth="0.5"
-              opacity="0.5"
+              opacity="0.7"
             />
           ))}
         </svg>
@@ -111,7 +114,7 @@ const PremiumRotatingElement = () => {
           left: '50%',
           transform: 'translate(-50%, -50%)'
         }}
-        className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center"
+        className="w-8 h-8 md:w-10 md:h-10 flex items-center justify-center relative z-10"
       >
         <motion.div
           animate={{ scale: isHovered ? 1.1 : 1 }}
@@ -128,7 +131,7 @@ const PremiumRotatingElement = () => {
               cx="25" 
               cy="25" 
               r="20" 
-              fill="black" 
+              fill="#003399" 
             />
             
             {/* Q monogram */}
@@ -146,6 +149,21 @@ const PremiumRotatingElement = () => {
           </svg>
         </motion.div>
       </div>
+      
+      {/* Adaptive background that changes based on scroll position */}
+      <motion.div 
+        className="absolute -inset-2 -z-10 rounded-full opacity-0"
+        style={{
+          opacity: useTransform(scrollYProgress, 
+            [0, 0.2, 0.4, 0.6, 0.8, 1], 
+            [0, 0.4, 0, 0.4, 0, 0.4]
+          ),
+          backgroundColor: useTransform(scrollYProgress, 
+            [0, 0.5, 1], 
+            ['rgba(255,255,255,0.8)', 'rgba(240,240,240,0.8)', 'rgba(255,255,255,0.8)']
+          )
+        }}
+      />
     </motion.div>
   );
 };
