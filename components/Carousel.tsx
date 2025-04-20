@@ -22,6 +22,8 @@ const Carousel = ({
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Handle auto-play functionality
+
+  //ts-ignore
   useEffect(() => {
     if (!autoPlay) return;
     
