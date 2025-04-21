@@ -29,21 +29,21 @@ const projects: Project[] = [
 //   },
   {
     id: 2,
-    title: "Portfolio Design",
-    client: "Somtochukwu",
-    image: "/assets/product/balldraft.png",
+    title: "Unizon",
+    client: "Unizon",
+    image: "/assets/product/unizon.jpeg",
     categories: ["Website", "Brand Identity"],
-    link: "/projects/portfolio",
+    link: "#",
     size: 'medium'
   },
   {
     id: 3,
-    title: "Healthcare Dashboard",
-    client: "MedConnect",
-    image: "/assets/product/cic.png",
+    title: "Mobile Banking ",
+    client: "GM Coffee",
+    image: "/assets/product/finance.jpeg",
     categories: ["UI/UX", "Development"],
     link: "/projects/healthcare",
-    size: 'small'
+    size: 'medium'
   },
   {
     id: 4,
@@ -51,17 +51,17 @@ const projects: Project[] = [
     client: "ShopNow",
     image: "/assets/product/outat.svg",
     categories: ["Web App", "UX Design"],
-    link: "/projects/ecommerce",
+    link: "#",
     size: 'medium'
   },
   {
     id: 5,
     title: "Mobile Banking App",
     client: "FinTech Solutions",
-    image: "/assets/product/kwick.svg",
+    image: "/assets/product/balldraft.jpeg",
     categories: ["Mobile App", "UI Design"],
     link: "/projects/banking-app",
-    size: 'small'
+    size: 'medium'
   },
 //   {
 //     id: 6,

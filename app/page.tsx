@@ -15,7 +15,9 @@ export default function Home() {
       <Analytics />
       <Navbar />
       <Hero />
-      <CoreValues />
+     <div className="bg-black">
+     <CoreValues />
+     </div>
       <OurWork />
       <AboutUs />
       <Footer />

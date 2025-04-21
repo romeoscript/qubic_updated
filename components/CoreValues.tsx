@@ -44,7 +44,7 @@ const CoreValues = () => {
   ];
 
   return (
-    <section className="container mx-auto px-4 md:px-8 py-20">
+    <section className="container mx-auto px-4 md:px-8 py-20 bg-black text-white">
       <motion.div
         className="flex flex-col-reverse md:flex-row gap-8 mb-24"
         variants={staggerContainer}
