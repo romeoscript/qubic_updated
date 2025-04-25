@@ -28,18 +28,18 @@ const CoreValues = () => {
   const coreValues = [
     {
       id: "01",
-      title: "Innovation Excellence",
-      description: "Pioneering cutting-edge solutions for public sector challenges",
+      title: "Results-Driven Innovation",
+      description: "Delivering measurable business outcomes through cutting-edge technology solutions",
     },
     {
       id: "02",
-      title: "Transparent Partnership",
-      description: "Building trust through open communication and collaboration",
+      title: "Strategic Partnership",
+      description: "Building long-term relationships that drive sustainable growth and success",
     },
     {
       id: "03",
-      title: "Social Impact",
-      description: "Creating technology that improves public services and experiences",
+      title: "Proven Excellence",
+      description: "Backed by a track record of successful implementations and satisfied clients",
     },
   ];
 
@@ -91,22 +91,21 @@ const CoreValues = () => {
             className="inline-block rounded-full w-fit px-5 py-2 bg-[#003399] text-[#fdfcf7] text-sm font-medium"
             variants={fadeInUp}
           >
-            Core values
+            Why Choose Us
           </motion.span>
           
           <motion.h2 
             className="text-3xl md:text-4xl lg:text-5xl font-bold mt-4"
             variants={fadeInUp}
           >
-            We Own IT
+            Your Success Is Our Priority
           </motion.h2>
           
           <motion.p 
             className="text-lg text-[#fdfcf7] my-4"
             variants={fadeInUp}
           >
-            Our core values drive our mission to transform technology through
-            innovative, transparent, and impactful solutions that empower the world.
+            We combine technical expertise with business acumen to deliver solutions that drive real results. Our proven approach has helped organizations across industries achieve their digital transformation goals.
           </motion.p>
           
           <motion.div 
@@ -119,7 +118,7 @@ const CoreValues = () => {
               href="/contact"
               className="bg-[#fdfcf7] text-[black] rounded-md px-8 py-4 inline-block font-medium hover:bg-gray-800 transition-colors"
             >
-              BUILD YOUR PROJECT
+              SCHEDULE A CONSULTATION
             </Link>
           </motion.div>
         </motion.div>

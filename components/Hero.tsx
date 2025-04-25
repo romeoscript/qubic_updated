@@ -123,7 +123,7 @@ const Hero = () => {
                                 className="max-w-lg mb-8"
                             >
                                 <p className="text-lg text-black">
-                                    Qubic is What&apos;s Cookin&apos; Inc&apos;s independent subsidiary, which specializes in private and public sector technology solutions. we deliver custom and advanced software solutions, cloud infrastructure automation, and open source contributions focusing on transparency and social impacts.
+                                    Transform your organization with cutting-edge technology solutions. We specialize in custom software development, cloud infrastructure, and digital transformation that drives measurable results. Get a free consultation to discover how we can help you achieve your goals.
                                 </p>
                             </motion.div>
 

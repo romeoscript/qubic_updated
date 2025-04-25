@@ -147,10 +147,10 @@ const OurWorks: React.FC = () => {
           variants={titleVariants}
           className="mb-16 md:mb-24"
         >
-          <p className="text-gray-500 text-lg mb-4">— Explore</p>
+          <p className="text-gray-500 text-lg mb-4">— Success Stories</p>
           <h2 className="text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight text-gray-900">
-            <span>OUR </span>
-            <span className="font-bold">WORKS</span>
+            <span>PROVEN </span>
+            <span className="font-bold">RESULTS</span>
           </h2>
         </motion.div>
         
@@ -221,7 +221,7 @@ const OurWorks: React.FC = () => {
                       </p>
                       
                       <div className="mt-3 flex items-center text-sm font-medium">
-                        <span>View Project</span>
+                        <span>View Case Study</span>
                         <svg 
                           className="ml-1 w-4 h-4 transform group-hover:translate-x-1 transition-transform duration-200" 
                           fill="none" 
@@ -269,11 +269,11 @@ const OurWorks: React.FC = () => {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.6 }}
         >
-          {/* <Link 
-            href="/works"
+          <Link 
+            href="/contact"
             className="inline-flex items-center px-8 py-4 bg-black text-white text-lg font-medium hover:bg-gray-900 transition-colors group"
           >
-            <span>Explore all works</span>
+            <span>Start Your Project</span>
             <motion.svg 
               className="ml-2 w-5 h-5"
               animate={{ x: [0, 4, 0] }}
@@ -284,7 +284,7 @@ const OurWorks: React.FC = () => {
             >
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
             </motion.svg>
-          </Link> */}
+          </Link>
         </motion.div>
       </div>
     </section>
