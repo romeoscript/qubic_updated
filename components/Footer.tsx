@@ -43,7 +43,6 @@ const socialLinks = [
 const legalLinks = [
   { name: 'Privacy Policy', path: '/privacy' },
   { name: 'Terms of Service', path: '/terms' },
-  { name: 'Careers', path: '/careers' },
 ];
 
 const EnhancedFooter = () => {

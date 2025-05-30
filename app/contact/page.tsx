@@ -34,14 +34,14 @@ const contactMethods: ContactMethod[] = [
     title: "Schedule a Call",
     description: "Book a 30-minute consultation with our experts",
     icon: "📞",
-    link: "https://calendly.com/your-agency",
+    link: "https://calendly.com/romeobourne211/30min",
     type: "primary"
   },
   {
     title: "Email Us",
     description: "Send us a detailed message about your project",
     icon: "✉️",
-    link: "mailto:contact@your-agency.com",
+    link: "mailto:info@qubic.com.ng",
     type: "secondary"
   }
 ];
@@ -364,7 +364,7 @@ const Contact = () => {
                     required
                     value={formData.name}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-gray-500 focus:border-white text-black p-3 outline-none transition-all"
+                    className="w-full bg-transparent border-b border-gray-500 focus:border-white text-white placeholder-white p-3 outline-none transition-all"
                     placeholder="Enter your full name"
                     whileFocus="focus"
                     variants={inputVariants}
@@ -382,7 +382,7 @@ const Contact = () => {
                     required
                     value={formData.email}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-gray-500 focus:border-white text-black p-3 outline-none transition-all"
+                    className="w-full bg-transparent border-b border-gray-500 focus:border-white text-white placeholder-white p-3 outline-none transition-all"
                     placeholder="Enter your email address"
                     whileFocus="focus"
                     variants={inputVariants}
@@ -397,7 +397,7 @@ const Contact = () => {
                   <div className="relative">
                     <motion.button
                       type="button"
-                      className="w-full bg-transparent border-b border-gray-500 focus:border-white text-left text-gray-400 p-3 flex justify-between items-center outline-none transition-all"
+                      className="w-full bg-transparent border-b border-gray-500 focus:border-white text-left text-white placeholder-white p-3 flex justify-between items-center outline-none transition-all"
                       onClick={() => setShowServices(!showServices)}
                       whileHover={{ backgroundColor: "rgba(255,255,255,0.05)" }}
                       whileTap={{ scale: 0.99 }}
@@ -451,7 +451,7 @@ const Contact = () => {
                     rows={5}
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full bg-transparent text-black border-b border-gray-500 focus:border-white p-3 outline-none transition-all resize-none"
+                    className="w-full bg-transparent text-white placeholder-white border-b border-gray-500 focus:border-white p-3 outline-none transition-all resize-none"
                     placeholder="Project details, requirements, etc."
                     whileFocus="focus"
                     variants={inputVariants}
