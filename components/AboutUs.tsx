@@ -3,12 +3,17 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import Image from 'next/image';
+import Head from 'next/head';
+import Link from 'next/link';
 
 interface TeamMember {
   id: number;
   name: string;
   role: string;
   image: string;
+  bio?: string;
+  expertise?: string[];
+  slug?: string;
   socialLinks?: {
     twitter?: string;
     linkedin?: string;
@@ -19,23 +24,29 @@ interface TeamMember {
 const teamMembers: TeamMember[] = [
   {
     id: 1,
-    name: "Ani Peter",
+    name: "Benjamin Peter Ani",
     role: "Chief Technology Officer",
     image: "/assets/home/peter.jpeg",
+    bio: "Benjamin Peter Ani is a seasoned Chief Technology Officer with expertise in software architecture, cloud computing, and digital transformation. He leads Qubic's technical strategy and innovation initiatives.",
+    expertise: ["Software Architecture", "Cloud Computing", "Digital Transformation", "Technical Leadership"],
+    slug: "benjamin-peter-ani",
     socialLinks: {
-      twitter: "https://twitter.com",
-      linkedin: "https://linkedin.com",
+      twitter: "https://x.com",
+      linkedin: "https://www.linkedin.com/in/peter-ani-642a5722a/",
       github: "https://github.com"
     }
   },
   {
     id: 2,
-    name: "Chukwuemeka Romeo",
+    name: "Ezeugwu Romanus Chukwuemeka",
     role: "Chief Executive Officer",
     image: "/assets/home/romeo.jpeg",
+    bio: "Ezeugwu Romanus Chukwuemeka is the visionary CEO of Qubic, driving strategic growth and innovation in digital solutions. He brings extensive experience in business development and technology leadership.",
+    expertise: ["Strategic Leadership", "Business Development", "Digital Innovation", "Technology Strategy"],
+    slug: "ezeugwu-romanus-chukwuemeka",
     socialLinks: {
-      twitter: "https://twitter.com",
-      linkedin: "https://linkedin.com"
+      twitter: "https://x.com/romeoscript1",
+      linkedin: "https://www.linkedin.com/in/ezeugwuromanus/"
     }
   },
   {
@@ -43,6 +54,8 @@ const teamMembers: TeamMember[] = [
     name: "Emmanuel Umoren",
     role: "Head of Product Strategy",
     image: "/assets/home/emma.jpeg",
+    bio: "Emmanuel Umoren leads product strategy and development at Qubic, ensuring our solutions meet market needs and deliver exceptional user experiences.",
+    expertise: ["Product Strategy", "User Experience", "Market Research", "Product Development"],
     socialLinks: {
       linkedin: "https://linkedin.com",
       github: "https://github.com"
@@ -53,6 +66,8 @@ const teamMembers: TeamMember[] = [
     name: "Golda Velez",
     role: "Strategic Advisor",
     image: "/assets/home/golda.jpeg",
+    bio: "Golda Velez serves as Strategic Advisor, providing valuable insights and guidance on business strategy and market expansion initiatives.",
+    expertise: ["Strategic Planning", "Market Analysis", "Business Advisory", "Growth Strategy"],
     socialLinks: {
       twitter: "https://twitter.com",
       github: "https://github.com"
@@ -67,6 +82,29 @@ const AboutUs: React.FC = () => {
     target: sectionRef,
     offset: ["start end", "end start"]
   });
+
+  // Generate structured data for team members
+  const generateStructuredData = () => {
+    const organizationSchema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Qubic",
+      "url": "https://qubic.com.ng",
+      "logo": "https://qubic.com.ng/assets/home/logo.svg",
+      "description": "Qubic delivers innovative digital solutions and web development services",
+      "founder": teamMembers.map(member => ({
+        "@type": "Person",
+        "name": member.name,
+        "jobTitle": member.role,
+        "image": `https://qubic.com.ng${member.image}`,
+        "description": member.bio,
+        "knowsAbout": member.expertise,
+        "sameAs": member.socialLinks ? Object.values(member.socialLinks).filter(Boolean) : []
+      }))
+    };
+
+    return JSON.stringify(organizationSchema);
+  };
 
   // Parallax effects
   const y1 = useTransform(scrollYProgress, [0, 1], [0, -100]);
@@ -130,11 +168,20 @@ const AboutUs: React.FC = () => {
   const usersLoveText = "clients trust.";
   
   return (
-    <section 
-      ref={sectionRef}
-      id='about'
-      className="py-20 md:py-32 bg-black text-white overflow-hidden relative"
-    >
+    <>
+      <Head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: generateStructuredData() }}
+        />
+      </Head>
+      <section 
+        ref={sectionRef}
+        id='about'
+        className="py-20 md:py-32 bg-black text-white overflow-hidden relative"
+        itemScope
+        itemType="https://schema.org/Organization"
+      >
       {/* Gradient background */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-[#111] to-black"></div>
       
@@ -250,58 +297,97 @@ const AboutUs: React.FC = () => {
         
         {/* Team section */}
         <div className="mt-20">
-          <motion.h3 
+          <motion.h2 
             className="text-2xl md:text-3xl font-bold mb-12"
             variants={textVariants}
             initial="hidden"
             animate={isInView ? "visible" : "hidden"}
           >
             Meet Our Leadership Team
-          </motion.h3>
+          </motion.h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" role="list" aria-label="Leadership team members">
             {teamMembers.map((member, index) => (
-              <motion.div
+              <motion.article
                 key={member.id}
                 custom={index}
                 variants={teamMemberVariants}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
                 className="bg-[#111] p-6 rounded-lg"
+                itemScope
+                itemType="https://schema.org/Person"
+                role="listitem"
               >
                 <div className="relative w-full h-64 mb-4 rounded-lg overflow-hidden">
                   <Image
                     src={member.image}
-                    alt={member.name}
+                    alt={`${member.name}, ${member.role} at Qubic - Professional headshot`}
                     fill
                     className="object-cover"
+                    itemProp="image"
+                    priority={index < 2} // Prioritize first two images (Peter and Romanus)
                   />
                 </div>
-                <h4 className="text-xl font-bold mb-2">{member.name}</h4>
-                <p className="text-gray-400 mb-4">{member.role}</p>
+                <h3 className="text-xl font-bold mb-2" itemProp="name">
+                  {member.slug ? (
+                    <Link 
+                      href={`/team/${member.slug}`}
+                      className="hover:text-blue-400 transition-colors"
+                      aria-label={`Learn more about ${member.name}`}
+                    >
+                      {member.name}
+                    </Link>
+                  ) : (
+                    member.name
+                  )}
+                </h3>
+                <p className="text-gray-400 mb-4" itemProp="jobTitle">{member.role}</p>
                 <div className="flex gap-4">
                   {member.socialLinks?.linkedin && (
-                    <a href={member.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                    <a 
+                      href={member.socialLinks.linkedin} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-gray-400 hover:text-white transition-colors"
+                      itemProp="sameAs"
+                      aria-label={`${member.name}'s LinkedIn profile`}
+                    >
                       LinkedIn
                     </a>
                   )}
                   {member.socialLinks?.twitter && (
-                    <a href={member.socialLinks.twitter} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                    <a 
+                      href={member.socialLinks.twitter} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-gray-400 hover:text-white transition-colors"
+                      itemProp="sameAs"
+                      aria-label={`${member.name}'s Twitter profile`}
+                    >
                       Twitter
                     </a>
                   )}
                   {member.socialLinks?.github && (
-                    <a href={member.socialLinks.github} target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">
+                    <a 
+                      href={member.socialLinks.github} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-gray-400 hover:text-white transition-colors"
+                      itemProp="sameAs"
+                      aria-label={`${member.name}'s GitHub profile`}
+                    >
                       GitHub
                     </a>
                   )}
                 </div>
-              </motion.div>
+              </motion.article>
             ))}
           </div>
         </div>
       </div>
     </section>
+    </>
   );
 };
 

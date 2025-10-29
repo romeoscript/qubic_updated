@@ -15,25 +15,25 @@ const socialLinks = [
   { 
     name: 'X', 
     icon: <TwitterIcon />, 
-    url: 'https://twitter.com/qubicstudio',
+    url: 'https://twitter.com/#',
     handle: '@qubic'
   },
   { 
     name: 'LinkedIn', 
     icon: <LinkedInIcon />, 
-    url: 'https://linkedin.com/company/qubicstudio',
+    url: 'https://www.linkedin.com/company/qubic-digital-services/',
     handle: '@qubic'
   },
   { 
     name: 'Instagram', 
     icon: <InstagramIcon />, 
-    url: 'https://instagram.com/qubicstudio',
+    url: 'https://instagram.com/#',
     handle: '@qubic'
   },
   { 
     name: 'GitHub', 
     icon: <GitHubIcon />, 
-    url: 'https://github.com/qubicstudio',
+    url: 'https://github.com/#',
     handle: '@qubic'
   },
 ];
