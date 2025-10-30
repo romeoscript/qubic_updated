@@ -10,12 +10,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Qubic | Digital Solutions & Web Development | Benjamin Peter Ani CTO | Ezeugwu Romanus CEO",
-  description: "Qubic delivers innovative digital solutions and web development services. Led by Benjamin Peter Ani (CTO) and Ezeugwu Romanus Chukwuemeka (CEO), we specialize in creating custom software, web applications, and digital experiences that drive business growth.",
+  title: "Qubic | Digital Solutions & Web Development",
+  description: "Qubic delivers innovative digital solutions and web development services. We specialize in creating custom software, web applications, and digital experiences that drive business growth.",
   keywords: "Qubic, digital services, web development, software development, custom software, web applications, digital solutions, Qubic studio, Qubic web, Nigeria, Benjamin Peter Ani, Ezeugwu Romanus Chukwuemeka, Peter Ani, Romanus Chukwuemeka, CTO, CEO, technology leadership",
   openGraph: {
-    title: "Qubic | Digital Solutions & Web Development | Benjamin Peter Ani CTO | Ezeugwu Romanus CEO",
-    description: "Transform your ideas into powerful digital solutions with Qubic. Led by Benjamin Peter Ani (CTO) and Ezeugwu Romanus Chukwuemeka (CEO). Expert web development and custom software services in Nigeria.",
+    title: "Qubic | Digital Solutions & Web Development",
+    description: "Transform your ideas into powerful digital solutions with Qubic. Expert web development and custom software services in Nigeria.",
     url: "https://qubic.com.ng",
     siteName: "Qubic",
     images: [
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
         url: "/assets/images/file.svg",
         width: 1200,
         height: 630,
-        alt: "Qubic Digital Services - Benjamin Peter Ani CTO, Ezeugwu Romanus CEO",
+        alt: "Qubic Digital Services",
       },
     ],
     locale: "en_US",
@@ -31,8 +31,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Qubic | Digital Solutions & Web Development | Benjamin Peter Ani CTO | Ezeugwu Romanus CEO",
-    description: "Transform your ideas into powerful digital solutions with Qubic. Led by Benjamin Peter Ani (CTO) and Ezeugwu Romanus Chukwuemeka (CEO). Expert web development and custom software services in Nigeria.",
+    title: "Qubic | Digital Solutions & Web Development",
+    description: "Transform your ideas into powerful digital solutions with Qubic. Expert web development and custom software services in Nigeria.",
     images: ["/assets/images/file.svg"],
   },
   robots: {
