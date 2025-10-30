@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({ 
@@ -65,6 +66,56 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+        <Script id="sd-website-nav-org" type="application/ld+json" strategy="afterInteractive">
+          {JSON.stringify([
+            {
+              "@context": "https://schema.org/",
+              "@type": "WebSite",
+              "@id": "https://qubic.com.ng#website",
+              "headline": "Qubic",
+              "name": "Qubic",
+              "description": "Qubic delivers innovative digital solutions and web development services",
+              "url": "https://qubic.com.ng",
+              "potentialAction": {
+                "@type": "SearchAction",
+                "target": "https://qubic.com.ng?s={search_term_string}",
+                "query-input": "required name=search_term_string"
+              }
+            },
+            {
+              "@context": "https://schema.org/",
+              "@graph": [
+                { "@type": "SiteNavigationElement", "@id": "https://qubic.com.ng#Main Menu", "name": "Home", "url": "https://qubic.com.ng" },
+                { "@type": "SiteNavigationElement", "@id": "https://qubic.com.ng#Main Menu", "name": "Who We Are", "url": "https://qubic.com.ng/#about" },
+                { "@type": "SiteNavigationElement", "@id": "https://qubic.com.ng#Main Menu", "name": "Our Work", "url": "https://qubic.com.ng/#work" },
+                { "@type": "SiteNavigationElement", "@id": "https://qubic.com.ng#Main Menu", "name": "Our Team", "url": "https://qubic.com.ng/#about" },
+                { "@type": "SiteNavigationElement", "@id": "https://qubic.com.ng#Main Menu", "name": "Contact Us", "url": "https://qubic.com.ng/contact" }
+              ]
+            },
+            {
+              "@context": "https://schema.org/",
+              "@type": "Organization",
+              "@id": "https://qubic.com.ng#Organization",
+              "name": "Qubic",
+              "url": "https://qubic.com.ng",
+              "sameAs": [
+                "https://x.com/romeoscript1",
+                "https://www.linkedin.com/in/ezeugwuromanus/"
+              ],
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://qubic.com.ng/assets/home/logo.svg",
+                "width": "512",
+                "height": "512"
+              },
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "contactType": "customer support",
+                "url": "https://qubic.com.ng/contact"
+              }
+            }
+          ])}
+        </Script>
       </head>
       <body className={inter.className}>{children}</body>
     </html>

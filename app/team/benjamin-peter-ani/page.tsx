@@ -61,6 +61,35 @@ export default function BenjaminPeterAniPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://qubic.com.ng/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Team",
+                "item": "https://qubic.com.ng/#about"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Benjamin Peter Ani",
+                "item": "https://qubic.com.ng/team/benjamin-peter-ani"
+              }
+            ]
+          })
+        }}
+      />
       <div className="min-h-screen bg-black text-white">
         <div className="container mx-auto px-4 py-20">
           {/* Breadcrumb */}

@@ -37,21 +37,68 @@ export default function EzeugwuRomanusPage() {
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Ezeugwu Romanus Chukwuemeka",
-    "jobTitle": "Senior Software Engineer (Frontend)",
-    "worksFor": {
-      "@type": "Organization",
-      "name": "Qubic",
-      "url": "https://qubic.com.ng"
-    },
-    "image": "https://qubic.com.ng/assets/home/romeo.jpeg",
-    "description": "Ezeugwu Romanus Chukwuemeka is a Senior Software Engineer specializing in frontend development at Qubic. He brings extensive experience in React, TypeScript, and modern web technologies.",
-    "knowsAbout": ["Frontend Development", "React", "TypeScript", "JavaScript", "Web Technologies", "User Interface Design"],
+    "@id": "https://qubic.com.ng/team/ezeugwu-romanus-chukwuemeka#person",
+    "name": "Romanus Chukwuemeka Ezeugwu",
+    "alternateName": ["Romeoscript", "Romeo", "RomeoScript", "Ezeugwu Romanus Chukwuemeka"],
+    "jobTitle": "CEO & Senior Software Engineer (Frontend)",
+    "worksFor": [
+      {
+        "@type": "Organization",
+        "name": "Qubic Digital Services",
+        "url": "https://qubic.com.ng"
+      },
+      {
+        "@type": "Organization",
+        "name": "LinkedTrust"
+      }
+    ],
+    "url": "https://qubic.com.ng/team/ezeugwu-romanus-chukwuemeka",
     "sameAs": [
+      "https://github.com/romeoscript",
       "https://www.linkedin.com/in/ezeugwuromanus/",
+      "https://www.instagram.com/romeoscript1/",
       "https://x.com/romeoscript1"
     ],
-    "url": "https://qubic.com.ng/team/ezeugwu-romanus-chukwuemeka"
+    "knowsAbout": [
+      "Frontend Development",
+      "React",
+      "TypeScript",
+      "JavaScript",
+      "Web Development",
+      "Software Engineering",
+      "System Architecture",
+      "Product Development",
+      "Open Source",
+      "Mentoring"
+    ],
+    "description": "Romanus Chukwuemeka Ezeugwu (Romeoscript) is a Senior Software Engineer specializing in frontend development, CEO of Qubic Digital Services, and works at LinkedTrust. Expert in React, TypeScript, JavaScript, and building scalable web applications.",
+    "image": "https://qubic.com.ng/assets/home/romeo.jpeg",
+    "email": "romeobourne211@gmail.com",
+    "nationality": "Nigerian",
+    "alumniOf": {
+      "@type": "EducationalOrganization",
+      "name": "University of Nigeria"
+    },
+    "award": [
+      "HNG Internship 9 Finalist",
+      "GAIN Hackathon Finalist",
+      "Featured on FLOSS Weekly podcast"
+    ],
+    "occupation": {
+      "@type": "Occupation",
+      "name": "Software Engineer",
+      "occupationLocation": {
+        "@type": "Country",
+        "name": "Nigeria"
+      },
+      "skills": [
+        "React",
+        "TypeScript",
+        "JavaScript",
+        "Frontend Development",
+        "System Architecture"
+      ]
+    }
   };
 
   return (
@@ -59,6 +106,35 @@ export default function EzeugwuRomanusPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://qubic.com.ng/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Team",
+                "item": "https://qubic.com.ng/#about"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Ezeugwu Romanus Chukwuemeka",
+                "item": "https://qubic.com.ng/team/ezeugwu-romanus-chukwuemeka"
+              }
+            ]
+          })
+        }}
       />
       <div className="min-h-screen bg-black text-white">
         <div className="container mx-auto px-4 py-20">
