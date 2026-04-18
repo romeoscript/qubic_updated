@@ -1,6 +1,6 @@
 'use client'
 // components/AboutUs.tsx
-import { useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform, useInView } from 'framer-motion';
 import Image from 'next/image';
 import Head from 'next/head';
@@ -72,8 +72,28 @@ const teamMembers: TeamMember[] = [
       twitter: "https://twitter.com",
       github: "https://github.com"
     }
+  },
+  {
+    id: 5,
+    name: "Benjamin Chikeleuba Chukwu",
+    role: "Software Engineer (Automation Specialist)",
+    image: "/assets/home/benjamin.png",
+    bio: "Benjamin Chikeleuba Chukwu is a Software Engineer and Automation Specialist at Qubic, engineering intelligent automation pipelines, CI/CD workflows, and end-to-end testing frameworks that accelerate delivery cycles and ensure production-grade reliability at scale.",
+    expertise: ["Automation Engineering", "CI/CD Pipelines", "Test Automation", "DevOps", "Performance Optimization"],
+    socialLinks: {
+      github: "https://github.com/chukwuraph",
+      linkedin: "https://www.linkedin.com/in/benjamin-chikeleuba-chukwu-2b0142403/"
+    }
   }
 ];
+
+type Particle = {
+  top: number;
+  left: number;
+  opacity: number;
+  yOffset: number;
+  duration: number;
+};
 
 const AboutUs: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
@@ -82,6 +102,19 @@ const AboutUs: React.FC = () => {
     target: sectionRef,
     offset: ["start end", "end start"]
   });
+
+  const [particles, setParticles] = useState<Particle[]>([]);
+  useEffect(() => {
+    setParticles(
+      Array.from({ length: 20 }, () => ({
+        top: Math.random() * 100,
+        left: Math.random() * 100,
+        opacity: Math.random() * 0.5 + 0.3,
+        yOffset: Math.random() * -30 - 10,
+        duration: Math.random() * 5 + 5,
+      }))
+    );
+  }, []);
 
   // Generate structured data for team members
   const generateStructuredData = () => {
@@ -187,21 +220,21 @@ const AboutUs: React.FC = () => {
       
       {/* Animated particles/dots */}
       <div className="absolute inset-0 z-0 opacity-20">
-        {Array.from({ length: 20 }).map((_, i) => (
+        {particles.map((p, i) => (
           <motion.div
             key={i}
             className="absolute w-1 h-1 bg-blue-400 rounded-full"
             style={{
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              opacity: Math.random() * 0.5 + 0.3
+              top: `${p.top}%`,
+              left: `${p.left}%`,
+              opacity: p.opacity
             }}
             animate={{
-              y: [0, Math.random() * -30 - 10, 0],
+              y: [0, p.yOffset, 0],
               opacity: [0.3, 0.8, 0.3]
             }}
             transition={{
-              duration: Math.random() * 5 + 5,
+              duration: p.duration,
               repeat: Infinity,
               ease: "easeInOut"
             }}
@@ -306,7 +339,7 @@ const AboutUs: React.FC = () => {
             Meet Our Leadership Team
           </motion.h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8" role="list" aria-label="Leadership team members">
+          <div className="flex flex-wrap justify-center gap-8" role="list" aria-label="Leadership team members">
             {teamMembers.map((member, index) => (
               <motion.article
                 key={member.id}
@@ -314,7 +347,7 @@ const AboutUs: React.FC = () => {
                 variants={teamMemberVariants}
                 initial="hidden"
                 animate={isInView ? "visible" : "hidden"}
-                className="bg-[#111] p-6 rounded-lg"
+                className="bg-[#111] p-6 rounded-lg w-full sm:w-[calc(50%-1rem)] lg:w-[calc(33.333%-1.34rem)]"
                 itemScope
                 itemType="https://schema.org/Person"
                 role="listitem"
