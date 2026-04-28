@@ -118,7 +118,14 @@ export default function RootLayout({
           ])}
         </Script>
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <Script
+          src="https://widget.swiftagents.org/dist/widget-ui.js"
+          data-company-id="924573c0-3731-4a93-a4da-e6775c0c4516"
+          strategy="lazyOnload"
+        />
+      </body>
     </html>
   );
 }
