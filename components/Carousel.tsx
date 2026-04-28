@@ -1,5 +1,5 @@
 // components/Carousel.tsx
-import { useState, useEffect, useRef, ReactNode } from 'react';
+import { useState, useEffect, useRef, useCallback, ReactNode } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 type CarouselProps = {
@@ -21,33 +21,27 @@ const Carousel = ({
   const [direction, setDirection] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // Handle auto-play functionality
+  const handleNext = useCallback(() => {
+    setDirection(1);
+    setCurrentIndex((prevIndex) => 
+      prevIndex === children.length - 1 ? 0 : prevIndex + 1
+    );
+  }, [children.length]);
 
-  //ts-ignore
+  // Handle auto-play functionality
   useEffect(() => {
     if (!autoPlay) return;
     
-    const startTimer = () => {
-      timeoutRef.current = setTimeout(() => {
-        handleNext();
-      }, interval);
-    };
-    
-    startTimer();
+    timeoutRef.current = setTimeout(() => {
+      handleNext();
+    }, interval);
     
     return () => {
       if (timeoutRef.current) {
         clearTimeout(timeoutRef.current);
       }
     };
-  }, [currentIndex, autoPlay, interval]);
-
-  const handleNext = () => {
-    setDirection(1);
-    setCurrentIndex((prevIndex) => 
-      prevIndex === children.length - 1 ? 0 : prevIndex + 1
-    );
-  };
+  }, [currentIndex, autoPlay, interval, handleNext]);
 
   const handlePrevious = () => {
     setDirection(-1);
