@@ -10,6 +10,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://qubic.com.ng"),
   title: "Qubic | Digital Solutions & Web Development",
   description: "Qubic delivers innovative digital solutions and web development services. We specialize in creating custom software, web applications, and digital experiences that drive business growth.",
   keywords: "Qubic, digital services, web development, software development, custom software, web applications, digital solutions, Qubic studio, Qubic web, Nigeria, Benjamin Peter Ani, Ezeugwu Romanus Chukwuemeka, Peter Ani, Romanus Chukwuemeka, CTO, CEO, technology leadership",
