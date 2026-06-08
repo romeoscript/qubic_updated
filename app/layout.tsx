@@ -123,6 +123,7 @@ export default function RootLayout({
         <Script
           src="https://widget.swiftagents.org/dist/widget-ui.js"
           data-company-id="924573c0-3731-4a93-a4da-e6775c0c4516"
+          data-api-key="swa_live_d57f1d465d2fa0f82dc62c055fc4be6864151b26b44fb3cbb5ca99398f025f70" 
           strategy="lazyOnload"
         />
       </body>
